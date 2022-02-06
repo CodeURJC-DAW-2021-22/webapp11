@@ -8,3 +8,13 @@
 *Admin:* This user has total control over the website. He is able to change the prices of any item as well as the availability of them. He is also able to errase any comments that disregards the web policy. 
 ***
 **Games:** They are the physical object being sold or bought within the aplication. They are divided in diferent categories depending on what type of game it is and if it´s made for PC or console.
+**Comment:** Every game will have a section where any user that is register can post a comment. They can be opinions about the game or questions that can be answered by the admin user or by other costumers.
+***
+###Graphics
+Every game will have a bar graphic that represents how good people think it is. Every graphic will be divided into 5 diferent bars. Ranging from 5 stars to 1 star, 5 beeing the best and 1 beeing the worst.
+***
+### Complementary Tecnology
+Every costumer will recieve an email of confirmation everytime he buys or sells a game.
+***
+###Algorythm
+THe website will recomend the users the games based on what games they bought, sold or liked or commented on. Assuming that these actions will only be performed on games that the user has an interst in.
