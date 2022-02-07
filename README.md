@@ -1,4 +1,4 @@
-# webapp11
+# webapp11 
 ## Phase 0
 ***
 ### Entities
@@ -14,6 +14,7 @@
 ***
 ### Images
 Every game will have a picture of the boxart on the website so that the costumers can identify them. The clients will have an avatar to represent them when they post comments.
+***
 ### Graphics
 Every game will have a bar graphic that represents how good people think it is. Every graphic will be divided into 5 diferent bars. Ranging from 5 stars to 1 star, 5 being the best and 1 being the worst.
 ***
