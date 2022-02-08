@@ -10,6 +10,7 @@
 *Admin:* This user has total control over the website. He is able to change the prices of any item as well as the availability of them. He is also able to errase any comments that disregards the web policy. 
 ***
 **Games:** They are the physical object being sold or bought within the aplication. They are divided in diferent categories depending on what type of game it is and if it´s made for PC or console.
+***
 **Comment:** Every game will have a section where any user that is register can post a comment. They can be opinions about the game or questions that can be answered by the admin user or by other costumers.
 ***
 ### Images
