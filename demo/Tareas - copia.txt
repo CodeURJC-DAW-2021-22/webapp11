@@ -1,0 +1,10 @@
+﻿Fase 2:
+-Crear proyecto Maven de SpringBoot (start.spring.io) con H2 como BD (base de datos)
+-Copiar .html pantallas a src/main/resources/templates (y poner application properties mustache extension a html)
+-Copiar imagenes, css, js files a src/main/resources/static
+-Crear un controler en / que devuelva la plantilla index.html
+-? Iniciar app Java y verificar pantallas en http://localhost:8080/
+-Crear clases de las entidades JPA (BD) y repositorios SpringData
+-Crear datos de ejemplo (objetos de esas clases)
+-Crear controladores que usen las pantallas (transformadas en plantillas) para mostrar los datos de la BD
+-Compartir clonar el repo, crear carpeta "backend" y copias de contenido de proyecto
