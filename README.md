@@ -24,3 +24,11 @@ Every costumer will recieve an email of confirmation every time he buys or sells
 ***
 ### Algorythm
 The website will recomend the users the games based on what games they bought, sold, liked or commented on. Assuming these actions will be performed on games that the user has an interest in.
+
+
+##Phase 2
+
+###Diagram of the app
+
+![diagrama app](https://user-images.githubusercontent.com/49288214/154924842-e50ac283-3d4a-43e7-b173-23ba09a78c9e.jpg)
+
