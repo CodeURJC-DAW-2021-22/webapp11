@@ -12,7 +12,7 @@ public class GreetingController {
 
 		model.addAttribute("name", "Mundo");
 
-		return "index.html";
+		return "index";
 	}
 
 }
