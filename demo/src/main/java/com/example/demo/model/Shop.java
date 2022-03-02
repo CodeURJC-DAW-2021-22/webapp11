@@ -1,6 +1,6 @@
-package es.codeurjc.daw.library.model;
+package com.example.demo.model;
 
-import java.util.List;
+/*import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +22,7 @@ public class Shop {
 	private String address;
 
 	@ManyToMany(mappedBy="shops")
- 	private List<Book> books;
+ 	private List<Games> games;
 
 
 	public Shop() {}
@@ -57,12 +57,15 @@ public class Shop {
 	}
 
 
-	public List<Book> getBooks() {
-		return books;
+	public List<Games> getBooks() {
+		return games;
 	}
 
 
-	public void setBooks(List<Book> books) {
-		this.books = books;
+	public void setBooks(List<Games> games) {
+		this.games = games;
 	}
 }
+
+
+ */

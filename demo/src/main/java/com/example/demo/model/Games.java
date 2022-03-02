@@ -1,4 +1,4 @@
-package es.codeurjc.daw.library.model;
+package com.example.demo.model;
 
 import java.sql.Blob;
 import java.util.List;
@@ -12,7 +12,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Book {
+public class Games {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,12 +28,14 @@ public class Book {
 
 	private boolean image;
 
-	@ManyToMany
+	/*@ManyToMany
  	private List<Shop> shops;
 
-	public Book() {}
+	 */
 
-	public Book(String nombre, String description) {
+	public Games() {}
+
+	public Games(String nombre, String description) {
 		super();
 		this.title = nombre;
 		this.description = description;
@@ -79,7 +81,7 @@ public class Book {
 		this.image = image;
 	}
 
-	public List<Shop> getShops() {
+	/*public List<Shop> getShops() {
 		return shops;
 	}
 
@@ -87,8 +89,10 @@ public class Book {
 		this.shops = shops;
 	}
 
+	 */
+
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", description=" + description + "]";
+		return "Game [id=" + id + ", title=" + title + ", description=" + description + "]";
 	}
 }

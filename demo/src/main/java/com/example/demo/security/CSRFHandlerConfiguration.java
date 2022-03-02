@@ -1,4 +1,4 @@
-package es.codeurjc.daw.library.security;
+package com.example.demo.security;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,3 +34,5 @@ class CSRFHandlerInterceptor implements HandlerInterceptor {
 		}
 	}
 }
+
+

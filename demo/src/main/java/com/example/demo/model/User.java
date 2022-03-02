@@ -1,4 +1,4 @@
-package es.codeurjc.daw.library.model;
+package com.example.demo.model;
 
 import java.util.List;
 
@@ -57,3 +57,4 @@ public class User {
 	}
 
 }
+

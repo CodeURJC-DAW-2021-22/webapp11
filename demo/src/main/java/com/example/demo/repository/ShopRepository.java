@@ -1,9 +1,12 @@
-package es.codeurjc.daw.library.repository;
+/*package com.example.demo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import es.codeurjc.daw.library.model.Shop;
+import com.example.demo.model.Shop;
 
 public interface ShopRepository extends JpaRepository<Shop, Long> {
 
 }
+
+ */
+

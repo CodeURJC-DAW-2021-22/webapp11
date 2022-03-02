@@ -1,4 +1,4 @@
-package es.codeurjc.daw.library.security;
+package com.example.demo.security;
 
 import java.security.SecureRandom;
 
@@ -54,3 +54,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.logout().logoutSuccessUrl("/");
     }
 }
+
+

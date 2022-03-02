@@ -1,4 +1,4 @@
-package es.codeurjc.daw.library.service;
+package com.example.demo.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import es.codeurjc.daw.library.model.Shop;
-import es.codeurjc.daw.library.repository.ShopRepository;
+/* import com.example.demo.model.Shop;
+import com.example.demo.repository.ShopRepository;
 
 @Service
 public class ShopService {
@@ -41,3 +41,7 @@ public class ShopService {
 
 	
 }
+
+
+ */
+
