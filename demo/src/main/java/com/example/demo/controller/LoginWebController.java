@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LoginWebController {
 	
-	@RequestMapping("/login")
+	@RequestMapping("/login.html")
 	public String login() {
 		return "login";
 	}
 
-	@RequestMapping("/loginerror")
+	@RequestMapping("/loginerror.html")
 	public String loginerror() {
 		return "loginerror";
 	}

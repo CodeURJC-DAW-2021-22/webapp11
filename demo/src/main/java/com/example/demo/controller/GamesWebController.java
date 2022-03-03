@@ -52,7 +52,7 @@ public class GamesWebController {
 		}
 	}
 
-	@GetMapping("/")
+	@GetMapping("/products.html")
 	public String showGames(Model model) {
 
 		model.addAttribute("games", gamesService.findAll());
@@ -60,7 +60,15 @@ public class GamesWebController {
 		return "products";
 	}
 
-	@GetMapping("/single/{id}")
+	@GetMapping("/index.html")
+	public String Index(Model model) {
+
+		//model.addAttribute("ga", gamesService.findAll());
+
+		return "index";
+	}
+
+	@GetMapping("/single.html/{id}")
 	public String showGame(Model model, @PathVariable long id) {
 
 		Optional<Games> game = gamesService.findById(id);
@@ -68,12 +76,12 @@ public class GamesWebController {
 			model.addAttribute("games", game.get());
 			return "single";
 		} else {
-			return "games";
+			return "single";
 		}
 
 	}
 
-	@GetMapping("/games/{id}/image")
+	@GetMapping("/single/{id}/image")
 	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
 
 		Optional<Games> game = gamesService.findById(id);
@@ -102,18 +110,18 @@ public class GamesWebController {
 
 	 */
 
-	/*@GetMapping("/newbook")
+	@GetMapping("/Addgames.html")
 	public String newBook(Model model) {
 
-		model.addAttribute("availableShops", shopService.findAll());
+		//model.addAttribute("availableShops", shopService.findAll());
 
-		return "newBookPage";
+		return "Addgames";
 	}
 
-	 */
 
-	@PostMapping("/newgame")
-	public String newBookProcess(Model model, Games games, MultipartFile imageField, @RequestParam List<Long> selectedShops) throws IOException {
+
+	@PostMapping("/Addgames.html")
+	public String newGameProcess(Model model, Games games, MultipartFile imageField, @RequestParam List<Long> selectedShops) throws IOException {
 
 		if (!imageField.isEmpty()) {
 			games.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
@@ -129,7 +137,7 @@ public class GamesWebController {
 		return "redirect:/Addgames/"+ games.getId();
 	}
 
-	@GetMapping("/edigames/{id}")
+	/*@GetMapping("/edigames/{id}")
 	public String editGames(Model model, @PathVariable long id) {
 
 		Optional<Games> games = gamesService.findById(id);
@@ -140,6 +148,8 @@ public class GamesWebController {
 			return "Products";
 		}
 	}
+
+
 
 	@PostMapping("/editgames")
 	public String editBookProcess(Model model, Games games, boolean removeImage, MultipartFile imageField)
@@ -153,6 +163,11 @@ public class GamesWebController {
 
 		return "redirect:/single/"+ games.getId();
 	}
+
+	 */
+
+
+
 
 	private void updateImage(Games games, boolean removeImage, MultipartFile imageField) throws IOException, SQLException {
 		
