@@ -3,19 +3,20 @@ package com.example.demo.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.demo.model.Games;
+import com.example.demo.model.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.repository.GamesRepository;
+
+import com.example.demo.repository.GameRepository;
 
 @Service
-public class GamesService {
+public class GameService {
 
 	@Autowired
-	private GamesRepository repository;
+	private GameRepository repository;
 
-	public Optional<Games> findById(long id) {
+	public Optional<Game> findById(long id) {
 		return repository.findById(id);
 	}
 	
@@ -23,12 +24,12 @@ public class GamesService {
 		return repository.existsById(id);
 	}
 
-	public List<Games> findAll() {
+	public List<Game> findAll() {
 		return repository.findAll();
 	}
 
-	public void save(Games games) {
-		repository.save(games);
+	public void save(Game game) {
+		repository.save(game);
 	}
 
 	public void delete(long id) {

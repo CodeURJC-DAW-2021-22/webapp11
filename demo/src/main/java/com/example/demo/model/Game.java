@@ -12,7 +12,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Games {
+public class Game {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,9 +33,9 @@ public class Games {
 
 	 */
 
-	public Games() {}
+	public Game() {}
 
-	public Games(String nombre, String description) {
+	public Game(String nombre, String description) {
 		super();
 		this.title = nombre;
 		this.description = description;

@@ -23,7 +23,7 @@ Every game will have a bar graphic that represents how good people think it is. 
 Every costumer will recieve an email of confirmation every time he buys or sells a game.
 ***
 ### Algorythm
-The website will recomend the users the games based on what games they bought, sold, liked or commented on. Assuming these actions will be performed on games that the user has an interest in.
+The website will recomend the users the game based on what game they bought, sold, liked or commented on. Assuming these actions will be performed on game that the user has an interest in.
 
 ***
 ## Phase 2

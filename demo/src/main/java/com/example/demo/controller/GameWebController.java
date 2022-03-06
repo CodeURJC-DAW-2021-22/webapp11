@@ -8,7 +8,7 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.example.demo.model.Games;
+import com.example.demo.model.Game;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -24,14 +24,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.demo.service.GamesService;
+import com.example.demo.service.GameService;
 //import com.example.demo.service.ShopService;
 
 @Controller
-public class GamesWebController {
+public class GameWebController {
 
 	@Autowired
-	private GamesService gamesService;
+	private GameService gamesService;
 
 	//@Autowired
 	//private ShopService shopService;
@@ -52,39 +52,46 @@ public class GamesWebController {
 		}
 	}
 
-	@GetMapping("/products.html")
+	@GetMapping("/games")
 	public String showGames(Model model) {
 
 		model.addAttribute("games", gamesService.findAll());
 
-		return "products";
+		return "games";
 	}
 
-	@GetMapping("/index.html")
+	@GetMapping("/index")
 	public String Index(Model model) {
 
 		//model.addAttribute("ga", gamesService.findAll());
 
 		return "index";
 	}
+	@GetMapping("/Usuario")
+	public String User(Model model) {
 
-	@GetMapping("/single.html/{id}")
+		//model.addAttribute("ga", gamesService.findAll());
+
+		return "Usuario";
+	}
+
+	@GetMapping("/game/{id}")
 	public String showGame(Model model, @PathVariable long id) {
 
-		Optional<Games> game = gamesService.findById(id);
+		Optional<Game> game = gamesService.findById(id);
 		if (game.isPresent()) {
-			model.addAttribute("games", game.get());
-			return "single";
+			model.addAttribute("game", game.get());
+			return "game";
 		} else {
-			return "single";
+			return "games";
 		}
 
 	}
 
-	@GetMapping("/single/{id}/image")
+	@GetMapping("/games/{id}/image")
 	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
 
-		Optional<Games> game = gamesService.findById(id);
+		Optional<Game> game = gamesService.findById(id);
 		if (game.isPresent() && game.get().getImageFile() != null) {
 
 			Resource file = new InputStreamResource(game.get().getImageFile().getBinaryStream());
@@ -110,8 +117,8 @@ public class GamesWebController {
 
 	 */
 
-	@GetMapping("/Addgames.html")
-	public String newBook(Model model) {
+	@GetMapping("/Addgames")
+	public String newgame(Model model) {
 
 		//model.addAttribute("availableShops", shopService.findAll());
 
@@ -119,26 +126,28 @@ public class GamesWebController {
 	}
 
 
-
-	@PostMapping("/Addgames.html")
-	public String newGameProcess(Model model, Games games, MultipartFile imageField, @RequestParam List<Long> selectedShops) throws IOException {
+	/*
+	@PostMapping("/Addgames")
+	public String newGameProcess(Model model, Game game, MultipartFile imageField, @RequestParam List<Long> selectedShops) throws IOException {
 
 		if (!imageField.isEmpty()) {
-			games.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
-			games.setImage(true);
+			game.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+			game.setImage(true);
 		}
 
 		//games.setShops(shopService.findById(selectedShops));
 
-		gamesService.save(games);
+		gamesService.save(game);
 
-		model.addAttribute("gameId", games.getId());
+		model.addAttribute("gameId", game.getId());
 
-		return "redirect:/Addgames/"+ games.getId();
+		return "redirect:/games/"+ game.getId();
 	}
 
-	/*@GetMapping("/edigames/{id}")
-	public String editGames(Model model, @PathVariable long id) {
+	 */
+
+	/*@GetMapping("/game.html/{id}")
+	public String showGames(Model model, @PathVariable long id) {
 
 		Optional<Games> games = gamesService.findById(id);
 		if (games.isPresent()) {
@@ -147,21 +156,22 @@ public class GamesWebController {
 		} else {
 			return "Products";
 		}
-	}
+	}*/
 
 
+	/*
 
 	@PostMapping("/editgames")
-	public String editBookProcess(Model model, Games games, boolean removeImage, MultipartFile imageField)
+	public String editBookProcess(Model model, Game game, boolean removeImage, MultipartFile imageField)
 			throws IOException, SQLException {
 
-		updateImage(games, removeImage, imageField);
+		updateImage(game, removeImage, imageField);
 
-		gamesService.save(games);
+		gamesService.save(game);
 
-		model.addAttribute("gameId", games.getId());
+		model.addAttribute("gameId", game.getId());
 
-		return "redirect:/single/"+ games.getId();
+		return "redirect:/single/"+ game.getId();
 	}
 
 	 */
@@ -169,22 +179,24 @@ public class GamesWebController {
 
 
 
-	private void updateImage(Games games, boolean removeImage, MultipartFile imageField) throws IOException, SQLException {
+
+
+	private void updateImage(Game game, boolean removeImage, MultipartFile imageField) throws IOException, SQLException {
 		
 		if (!imageField.isEmpty()) {
-			games.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
-			games.setImage(true);
+			game.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+			game.setImage(true);
 		} else {
 			if (removeImage) {
-				games.setImageFile(null);
-				games.setImage(false);
+				game.setImageFile(null);
+				game.setImage(false);
 			} else {
 				// Maintain the same image loading it before updating the book
-				Games dbGames = gamesService.findById(games.getId()).orElseThrow();
-				if (dbGames.getImage()) {
-					games.setImageFile(BlobProxy.generateProxy(dbGames.getImageFile().getBinaryStream(),
-							dbGames.getImageFile().length()));
-					games.setImage(true);
+				Game dbGame = gamesService.findById(game.getId()).orElseThrow();
+				if (dbGame.getImage()) {
+					game.setImageFile(BlobProxy.generateProxy(dbGame.getImageFile().getBinaryStream(),
+							dbGame.getImageFile().length()));
+					game.setImage(true);
 				}
 			}
 		}

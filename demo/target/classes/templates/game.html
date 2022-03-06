@@ -83,7 +83,7 @@ body {
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Best Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Best Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -103,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- animation-effect -->
-<link href="css/animate.min.css" rel="stylesheet"> 
+<link href="css/animate.min.css" rel="stylesheet">
 <script src="js/wow.min.js"></script>
 <script>
  new WOW().init();
@@ -115,7 +115,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-	
+
 <body>
 <!-- header -->
 	<div class="header">
@@ -126,10 +126,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">@example.com</a></li>
 						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 <span>567</span> 892</li>
 						<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="login.html">Login</a></li>
-						<li><i class="glyphicon glyphicon-games" aria-hidden="true"></i><a href="register.html">Register</a></li>
+						<li><i class="glyphicon glyphicon-game" aria-hidden="true"></i><a href="register.html">Register</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="clearfix"> </div>
 			</div>
 			<div class="logo-nav">
@@ -149,7 +149,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 						<ul class="nav navbar-nav">
-							<li><a href="index.html">Home</a></li>	
+							<li><a href="index.html">Home</a></li>
 							<!-- Mega Menu -->
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Games <b class="caret"></b></a>
@@ -167,8 +167,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<li><a href="products.html">Classics</a></li>
 											</ul>
 										</div>
-										
-									
+
+
 										<div class="clearfix"></div>
 									</div>
 								</ul>
@@ -211,7 +211,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //header -->
 
 <!-- single -->
+
 	<div class="single">
+		<h2>Game "{{game.title}}"</h2>
+		{{#game.image}}
+		<img src="/game/{{game.id}}/image">
+		{{/game.image}}
+
+		{{^game.image}}
+		<img src="/images/no_image.png">
+		{{/game.image}}
+		<div>
+			<p>{{game.description}}</p>
+		</div>
+	<!--
 		<div class="container">
 			<div class="col-md-4 products-left">
 				<div class="filter-price animated wow slideInUp" data-wow-delay=".5s">
@@ -238,13 +251,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						});//]]>
 						</script>
 						<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-					 <!---->
+
 				</div>
 				<div class="categories animated wow slideInUp" data-wow-delay=".5s">
 					<h3>Categories</h3>
 					<ul class="cate">
-						<li><a href="products.html">Super ventas</a> <span>(15)</span></li>
-						<li><a href="products.html">Recomendado para ti</a> <span>(16)</span></li>
+						<li><a href="games.html">Super ventas</a> <span>(15)</span></li>
+						<li><a href="games.html">Recomendado para ti</a> <span>(16)</span></li>
 					</ul>
 				</div>
 				
@@ -384,7 +397,7 @@ Red Dead Redemption 2 para PC está disponible para su compra en Instant Gaming 
 			</div>
 			<div class="clearfix"> </div>
 		</div>
-	</div>
+	</div>-->
 
 <div class="single-related-products2">
 	<div class="container">
@@ -526,8 +539,8 @@ Red Dead Redemption 2 para PC está disponible para su compra en Instant Gaming 
 						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
 					</ul>
 				</div>
-				
-				
+
+
 				<div class="clearfix"> </div>
 			</div>
 			<div class="footer-logo animated wow slideInUp" data-wow-delay=".5s">
