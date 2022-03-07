@@ -52,13 +52,15 @@ public class GameWebController {
 		}
 	}
 
-	@GetMapping("/games")
+	@GetMapping("/")
 	public String showGames(Model model) {
 
 		model.addAttribute("games", gamesService.findAll());
 
 		return "games";
 	}
+
+
 
 	@GetMapping("/index")
 	public String Index(Model model) {
@@ -67,7 +69,7 @@ public class GameWebController {
 
 		return "index";
 	}
-	@GetMapping("/Usuario")
+	@GetMapping("/Usuario/{id}")
 	public String User(Model model) {
 
 		//model.addAttribute("ga", gamesService.findAll());
@@ -75,7 +77,7 @@ public class GameWebController {
 		return "Usuario";
 	}
 
-	@GetMapping("/game/{id}")
+	@GetMapping("/games/{id}")
 	public String showGame(Model model, @PathVariable long id) {
 
 		Optional<Game> game = gamesService.findById(id);
