@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
 import java.sql.Blob;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 
 @Entity
 public class Game {
@@ -19,9 +17,13 @@ public class Game {
 	private Long id = null;
 	
 	private String title;
+
+	private Long price;
 	
 	@Column(columnDefinition = "TEXT")
 	private String description;
+
+	private String category;
 
 	@Lob
 	private Blob imageFile;
@@ -35,10 +37,12 @@ public class Game {
 
 	public Game() {}
 
-	public Game(String nombre, String description) {
+	public Game(String nombre, String description, Long price, String category) {
 		super();
 		this.title = nombre;
 		this.description = description;
+		this.price = price;
+		this.category = category;
 	}
 
 	public String getTitle() {
@@ -55,6 +59,20 @@ public class Game {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Long getPrice() { return price; }
+
+	public void setPrice(String description) {
+		this.price = price;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public Long getId() {
@@ -93,6 +111,6 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return "Game [id=" + id + ", title=" + title + ", description=" + description + "]";
+		return "Game [id=" + id + ", title=" + title + ", description=" + description + ", price=" + price + ", category=" + category + "]";
 	}
 }

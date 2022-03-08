@@ -2,20 +2,7 @@
 
 <!-- single -->
 
-	<div class="game">
-		<h2>Game "{{game.title}}"</h2>
-		{{#game.image}}
-		<img src="/game/{{game.id}}/image">
-		{{/game.image}}
 
-		{{^game.image}}
-		<img src="/images/no_image.png">
-		{{/game.image}}
-		<div>
-			<p>{{game.description}}</p>
-		</div>
-	</div>
-	<!--
 		<div class="container">
 			<div class="col-md-4 products-left">
 				<div class="filter-price animated wow slideInUp" data-wow-delay=".5s">
@@ -41,14 +28,14 @@
 
 						});//]]>
 						</script>
-						<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+						<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
 
 				</div>
 				<div class="categories animated wow slideInUp" data-wow-delay=".5s">
 					<h3>Categories</h3>
 					<ul class="cate">
-						<li><a href="games.html">Super ventas</a> <span>(15)</span></li>
-						<li><a href="games.html">Recomendado para ti</a> <span>(16)</span></li>
+						<li><a href="/games">Super ventas</a> <span>(15)</span></li>
+						<li><a href="/games">Recomendado para ti</a> <span>(16)</span></li>
 					</ul>
 				</div>
 				
@@ -57,15 +44,20 @@
 				<div class="col-md-5 single-right-left animated wow slideInUp" data-wow-delay=".5s">
 					<div class="flexslider">
 						<ul class="slides">
-							<li data-thumb="images/si.jpg">
-								<div class="thumb-image"> <img src="https://s1.gaming-cdn.com/images/products/5679/271x377/juego-rockstar-red-dead-redemption-2-standard-edition-cover.jpg" data-imagezoom="true" class="img-responsive"> </div>
-							</li>
+
+							{{#game.image}}
+							<img src="/games/{{game.id}}/image">
+							{{/game.image}}
+
+							{{^game.image}}
+							<img src="/images/no_image.png">
+							{{/game.image}}
 							
 						</ul>
 					</div>
 
-						<script defer src="js/jquery.flexslider.js"></script>
-						<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+						<script defer src="/js/jquery.flexslider.js"></script>
+						<link rel="stylesheet" href="/css/flexslider.css" type="text/css" media="screen" />
 						<script>
 						// Can also be used with $(document).ready()
 						$(window).load(function() {
@@ -78,26 +70,11 @@
 
 				</div>
 				<div class="col-md-7 single-right-left simpleCart_shelfItem animated wow slideInRight" data-wow-delay=".5s">
-					<h3>Red Dead Redemption II</h3>
+					<h2>Game "{{game.title}}"</h2>
 					<h4><span class="item_price">55€</span></h4>
-					<div class="rating1">
-						<span class="starRating">
-							<input id="rating5" type="radio" name="rating" value="5">
-							<label for="rating5">5</label>
-							<input id="rating4" type="radio" name="rating" value="4">
-							<label for="rating4">4</label>
-							<input id="rating3" type="radio" name="rating" value="3" checked>
-							<label for="rating3">3</label>
-							<input id="rating2" type="radio" name="rating" value="2">
-							<label for="rating2">2</label>
-							<input id="rating1" type="radio" name="rating" value="1">
-							<label for="rating1">1</label>
-						</span>
-					</div>
-					<div class="Descripción">
-						<h5><i>Descripción</i></h5>
-						<p>La razón de la popularidad del juego no es difícil de entender. A diferencia de otros juegos en los que el caos y la destrucción son la clave, este juego te permite sumergirte en la belleza de los paisajes del Salvaje Oeste, y formar lazos de empatía y afecto con otros jugadores y con PNJs (personajes no jugables) en los momentos de calma que se te presenten entra una secuencia de acción y otra – ¡de las cuales hallarás de sobra!.</p>
-					</div>
+
+
+
 					
 					<div class="occasional">
 						<h5>Occasion :</h5>
@@ -127,20 +104,11 @@
 						</ul>
 						<div id="myTabContent" class="tab-content">
 							<div role="tabpanel" class="tab-pane fade in active bootstrap-tab-text" id="home" aria-labelledby="home-tab">
-								<h5>Descripción completa del producto</h5>
-								<p>Red Dead Redemption 2 para PC es un juego de acción y aventuras de mundo abierto en el que el jugador puede vagar libremente. Cuenta algunos elementos en tercera persona, además de otras modalidades de juego en primera persona. El jugador puede cometer crímenes, pero de hacerlo deberá estar preparado para ser perseguido por las fuerzas del orden, ¡quienes estarán dispuestas a hacer valer todo el peso de la ley sobre los delincuentes!
 
-									<span>La razón de la popularidad del juego no es difícil de entender. A diferencia de otros juegos en los que el caos y la destrucción son la clave, este juego te permite sumergirte en la belleza de los paisajes del Salvaje Oeste, y formar lazos de empatía y afecto con otros jugadores y con PNJs (personajes no jugables) en los momentos de calma que se te presenten entra una secuencia de acción y otra – ¡de las cuales hallarás de sobra!</span>
-							<span>Controlarás a un personaje llamado Arthur Morgan, miembro de la banda de Van der Linde, y la trama lineal te guiará a través de un arco argumental establecido, en el que deberás completar misiones y cumplir con objetivos a medida que progreses por el juego, orientado por la narrativa general del mismo.</span>
-							<span>Una vez completada cada misión, Arthur es libre de vagar por el mundo abierto, explorando a profundidad y descubriendo nuevos lugares y, ocasionalmente, tropezando con nuevas misiones secundarias que podrá llevar a cabo antes de regresar a su punto original para continuar con la narrativa principal del juego.
-</span>
-							<span>A pensar de contar con arcos argumentales estrictamente trazados, la jugabilidad se basa fuertemente en las acciones del jugador, así que cada una de tus decisiones afectará el rumbo del juego. Puedes demorarte tanto como desees en cada una de tus aventuras, atrapando a villanos que cometen crímenes, auxiliando a personas en apuros o ayudándoles a cumplir sus objetivos mediante la realización de misiones secundarias, o bien, puedes pasar de largo, ignorando a todos los PNJs que encuentres por el camino, con la determinación de llegar a tu próximo destino.</span>
-							<span>Una de los principales atractivos del juego es la alta consideración que se la da a la estética de todos los elementos mostrados en pantalla. Tomando esto en cuenta, no es de extrañarse que los desarrolladores hayan puesto una gran cantidad de esfuerzo y detalle para hacer que la jugabilidad, los fondos e incluso los cambios de desplazamiento luzcan lo mejor posible.</span>
-							<span>Caballos – hay nuevas razas de caballos que se pueden atrapar, domar y montar, incluyendo al veloz Árabe Atigrado; al Perlino Andaluz, un excelente cazador; al Árabe Castaño, hermoso y rápido; entre otros. Pruébalos todos y descubre cuál es el que mejor se adapta a tu estilo de conducción, lucha y rastreo
-Armas de fuego – en esta entrega hay varias armas que solo estaban disponibles en la versión en línea del primer juego, incluyendo el High Roller Revolver y el revólver Le Mat, mientras que la pistola M1899 es una de las novedades para este juego
-Talismanes - mantén los ojos bien abiertos en busca de gadgets y amuletos que te ayuden en tu travesía. Estos incluyen un diente de tiburón que te ayuda a mejorar tu vínculo con tu caballo, un caparazón de tortuga que aumenta tu velocidad de recuperación de salud (permanentemente) y un pico de cuervo que incrementa en un 10% la cantidad de munición que obtienes al saquear (también de forma permanente)
-Red Dead Redemption 2 para PC está disponible para su compra en Instant Gaming por una fracción de su precio de venta al público. Recibirás una clave oficial y podrás disfrutar del juego en cuestión de segundos. Play smart. Pay less.</span></p>
+								<h5>Descripción completa del producto</h5>
+								<p>{{game.description}}</p>
 							</div>
+							<!--
 							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile" aria-labelledby="profile-tab">
 								<div class="bootstrap-tab-text-grids">
 									<div class="bootstrap-tab-text-grid">
@@ -190,128 +158,8 @@ Red Dead Redemption 2 para PC está disponible para su compra en Instant Gaming 
 		</div>
 	</div>
 
-<div class="single-related-products2">
-	<div class="container">
-		<span class="heading">User Rating</span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<p>4.1 average based on 254 reviews.</p>
-<hr style="border:3px solid #f1f1f1">
-
-<div class="row">
-  <div class="side">
-    <div>5 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-5"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>150</div>
-  </div>
-  <div class="side">
-    <div>4 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-4"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>63</div>
-  </div>
-  <div class="side">
-    <div>3 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-3"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>15</div>
-  </div>
-  <div class="side">
-    <div>2 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-2"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>6</div>
-  </div>
-  <div class="side">
-    <div>1 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-1"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>20</div>
-  </div>
+-->
 </div>
-	</div>	
-</div>-->
 <!-- //single -->
-<!-- single-related-products --><!--
-	<div class="single-related-products">
-		<div class="container">
-			<h3 class="animated wow slideInUp" data-wow-delay=".5s">Productos recomendados</h3>
-			<p class="est animated wow slideInUp" data-wow-delay=".5s">Los juegos que sabemos que te encantarán</p>
-			<div class="new-collections-grids">
-				<div class="col-md-3 new-collections-grid">
-					<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".5s">
-						<div class="new-collections-grid1-image">
-							
-							
-							
-						</div>
-						<h4><a href="single.html">GTA V</a></h4>
-						<div class="new-collections-grid1-left simpleCart_shelfItem">
-							<p><i>70€</i> <span class="item_price">40</span><a class="item_add" href="#">Comprar </a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 new-collections-grid">
-					<div class="new-collections-grid1-sub">
-						<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".6s">
-							
-							<h4><a href="single.html">Call of Duty II</a></h4>
-							<div class="new-collections-grid1-left simpleCart_shelfItem">
-								<p><i>72€</i> <span class="item_price">50</span><a class="item_add" href="#">Comprar </a></p>		</div>
-						</div>
-					</div>
-					<div class="new-collections-grid1-sub">
-						<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".7s">
-							
-							<h4><a href="single.html">Gran Turismo V</a></h4>
-							<div class="new-collections-grid1-left simpleCart_shelfItem">
-								<p><i>75€</i> <span class="item_price">49,54</span><a class="item_add" href="#">Comprar</a></p>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="col-md-3 new-collections-grid">
-					<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".8s">
-						
-						<h4><a href="single.html">Sing Star</a></h4>
-						<div class="new-collections-grid1-left simpleCart_shelfItem">
-							<p><i>15€</i> <span class="item_price">0,54</span><a class="item_add" href="#">Comprar</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>-->
-<!-- //single-related-products -->
+
 {{>footer}}
