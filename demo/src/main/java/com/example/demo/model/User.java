@@ -2,12 +2,7 @@ package com.example.demo.model;
 
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "UserTable")
 public class User {
@@ -22,6 +17,9 @@ public class User {
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
+
+	@ManyToMany(mappedBy="users")
+	private List<Game> gamesbaught;
 
 	public User() {
 	}
@@ -54,6 +52,14 @@ public class User {
 
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
+	}
+
+	public List<Game> getGames() {
+		return gamesbaught;
+	}
+
+	public void setBooks(List<Game> books) {
+		this.gamesbaught = gamesbaught;
 	}
 
 }

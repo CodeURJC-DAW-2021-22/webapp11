@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import java.sql.Blob;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Game {
@@ -30,10 +32,10 @@ public class Game {
 
 	private boolean image;
 
-	/*@ManyToMany
- 	private List<Shop> shops;
+	@ManyToMany
+ 	private List<User> users;
 
-	 */
+
 
 	public Game() {}
 
@@ -99,15 +101,11 @@ public class Game {
 		this.image = image;
 	}
 
-	/*public List<Shop> getShops() {
-		return shops;
-	}
+	//public List<User> getShops() { return users; }
 
-	public void setShops(List<Shop> shops) {
-		this.shops = shops;
-	}
+	//public void setShops(List<User> shops) { this.users = users; }
 
-	 */
+
 
 	@Override
 	public String toString() {

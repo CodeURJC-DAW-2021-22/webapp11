@@ -17,13 +17,11 @@
 					<thead>
 						<tr>
 							<th>Product Name</th>
-							<th>Service Charges</th>
 							<th>Price</th></tr>
 					</thead>
 					<tr class="rem1">
-						<td class="invert">Red dead redemption II</td>
-						<td class="invert">0€</td>
-						<td class="invert">60€</td>
+						<td class="invert">{{game.title}}</td>
+						<td class="invert">{{game.price}}€</td>
 						
 					</tr>
 					
@@ -31,10 +29,16 @@
 								
 				</table>
 			</div>
+
 			<div class="checkout-left">	
 				<div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
-					<h4>PAY</h4>
-					
+					<form action="/checkout" method="post">
+						<input type="text" name="Credit Card number" />
+						<input type="password" name="pin" />
+
+						<input type="submit" value="Pay">
+						<input type="hidden" name="_csrf" value="{{token}}"/>
+					</form>
 				</div>
 				
 				<div class="clearfix"> </div>

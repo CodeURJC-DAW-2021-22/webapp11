@@ -52,13 +52,20 @@ public class GameWebController {
 		}
 	}
 
-	@GetMapping("/")
+	@GetMapping("/games")
 	public String showGames(Model model) {
 
-		model.addAttribute("games", gamesService.findAll());
-
+		model.addAttribute("games", gamesService.findAll(0));
+		model.addAttribute("currentPage", 0);
 		return "games";
 	}
+
+
+
+
+
+
+
 
 
 
@@ -105,6 +112,19 @@ public class GameWebController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+	@GetMapping("/games/{id}/Checkout")
+	public String Checkout(Model model, @PathVariable long id) {
+
+		Optional<Game> game = gamesService.findById(id);
+		if (game.isPresent()) {
+			model.addAttribute("game", game.get());
+			return "checkout";
+		} else {
+			return "game";
+		}
+	}
+
+
 
 	/*@GetMapping("/removebook/{id}")
 	public String removeBook(Model model, @PathVariable long id) {

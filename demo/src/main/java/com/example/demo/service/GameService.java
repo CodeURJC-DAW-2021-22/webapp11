@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import com.example.demo.model.Game;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 
@@ -24,8 +26,8 @@ public class GameService {
 		return repository.existsById(id);
 	}
 
-	public List<Game> findAll() {
-		return repository.findAll();
+	public Page<Game> findAll(int n) {
+		return repository.findAll( PageRequest.of(n, 5));
 	}
 
 	public void save(Game game) {
@@ -35,6 +37,8 @@ public class GameService {
 	public void delete(long id) {
 		repository.deleteById(id);
 	}
+
+
 }
 
 
