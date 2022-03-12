@@ -19,7 +19,7 @@ public class User {
 	private List<String> roles;
 
 	@ManyToMany(mappedBy="users")
-	private List<Game> gamesbaught;
+	private List<Game> gamesBaught;
 
 	public User() {
 	}
@@ -55,11 +55,11 @@ public class User {
 	}
 
 	public List<Game> getGames() {
-		return gamesbaught;
+		return gamesBaught;
 	}
 
 	public void setBooks(List<Game> books) {
-		this.gamesbaught = gamesbaught;
+		this.gamesBaught = gamesBaught;
 	}
 
 }

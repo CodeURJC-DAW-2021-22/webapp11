@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.sql.Blob;
 import java.util.List;
 
@@ -28,6 +30,7 @@ public class Game {
 	private String category;
 
 	@Lob
+	@JsonIgnore
 	private Blob imageFile;
 
 	private boolean image;
