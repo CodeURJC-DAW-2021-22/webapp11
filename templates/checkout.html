@@ -1,0 +1,49 @@
+{{>header}}
+<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li class="active">Checkout Page</li>
+			</ol>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+<!-- checkout -->
+	<div class="checkout">
+		<div class="container">
+			<div class="checkout-right animated wow slideInUp" data-wow-delay=".5s">
+				<table class="timetable_sub">
+					<thead>
+						<tr>
+							<th>Product Name</th>
+							<th>Price</th></tr>
+					</thead>
+					<tr class="rem1">
+						<td class="invert">{{game.title}}</td>
+						<td class="invert">{{game.price}}€</td>
+						
+					</tr>
+					
+					
+								
+				</table>
+			</div>
+
+			<div class="checkout-left">	
+				<div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
+
+						<input type="text" name="Credit Card number" />
+						<input type="password" name="pin" />
+
+						<input type="submit" value="Pay">
+						<input type="hidden" name="_csrf" value="{{token}}"/>
+
+				</div>
+				
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //checkout -->
+{{>footer}}
