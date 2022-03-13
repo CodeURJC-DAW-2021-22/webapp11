@@ -1,0 +1,165 @@
+{{>header}}
+
+<!-- single -->
+
+
+		<div class="container">
+			<div class="col-md-4 products-left">
+				<div class="filter-price animated wow slideInUp" data-wow-delay=".5s">
+					<h3>Filtrar por precio</h3>
+					<ul class="dropdown-menu1">
+							<li><a href="">								               
+							<div id="slider-range"></div>							
+							<input type="text" id="amount" style="border: 0" />
+							</a></li>	
+					</ul>
+						<script type='text/javascript'>//<![CDATA[ 
+						$(window).load(function(){
+						 $( "#slider-range" ).slider({
+								range: true,
+								min: 0,
+								max: 120,
+								values: [ 0, 60 ],
+								slide: function( event, ui ) {  $( "#amount" ).val( ui.values[ 0 ] + "€ - " + ui.values[ 1 ] + " €");
+								}
+					 });
+					$( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 ) +"€ - " + $( "#slider-range" ).slider( "values", 1 ) + "€");
+
+
+						});//]]>
+						</script>
+						<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+
+				</div>
+				<div class="categories animated wow slideInUp" data-wow-delay=".5s">
+					<h3>Categories</h3>
+					<ul class="cate">
+						<li><a href="/games">Super ventas</a> <span>(15)</span></li>
+						<li><a href="/games">Recomendado para ti</a> <span>(16)</span></li>
+					</ul>
+				</div>
+				
+			</div>
+			<div class="col-md-8 single-right">
+				<div class="col-md-5 single-right-left animated wow slideInUp" data-wow-delay=".5s">
+					<div class="flexslider">
+						<ul class="slides">
+
+							{{#game.image}}
+							<img src="/games/{{game.id}}/image">
+							{{/game.image}}
+
+							{{^game.image}}
+							<img src="/images/no_image.png">
+							{{/game.image}}
+							
+						</ul>
+					</div>
+
+						<script defer src="/js/jquery.flexslider.js"></script>
+						<link rel="stylesheet" href="/css/flexslider.css" type="text/css" media="screen" />
+						<script>
+						// Can also be used with $(document).ready()
+						$(window).load(function() {
+						  $('.flexslider').flexslider({
+							animation: "slide",
+							controlNav: "thumbnails"
+						  });
+						});
+						</script>
+
+				</div>
+				<div class="col-md-7 single-right-left simpleCart_shelfItem animated wow slideInRight" data-wow-delay=".5s">
+					<h2>Game "{{game.title}}"</h2>
+					<h4><span class="item_price">55€</span></h4>
+
+
+
+					
+					<div class="occasional">
+						<h5>Occasion :</h5>
+						<div class="colr ert">
+							<label class="radio"><input type="radio" name="radio" checked=""><i></i>Nuevo</label>
+						</div>
+						<div class="colr">
+							<label class="radio"><input type="radio" name="radio"><i></i>Como nuevo</label>
+						</div>
+						<div class="colr">
+							<label class="radio"><input type="radio" name="radio"><i></i>Usado</label>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="occasion-cart">
+						<button onclick="location.href='/games/{{game.id}}/Checkout'">Comprar</button>
+					</div>
+					
+				</div>
+				<div class="clearfix"> </div>
+				<div class="bootstrap-tab animated wow slideInUp" data-wow-delay=".5s">
+					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+						<ul id="myTab" class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Descripción</a></li>
+							<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Comentarios(2)</a></li>
+							
+						</ul>
+						<div id="myTabContent" class="tab-content">
+							<div role="tabpanel" class="tab-pane fade in active bootstrap-tab-text" id="home" aria-labelledby="home-tab">
+
+								<h5>Descripción completa del producto</h5>
+								<p>{{game.description}}</p>
+							</div>
+							<!--
+							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile" aria-labelledby="profile-tab">
+								<div class="bootstrap-tab-text-grids">
+									<div class="bootstrap-tab-text-grid">
+										<div class="bootstrap-tab-text-grid-left">
+											
+										</div>
+										<div class="bootstrap-tab-text-grid-right">
+											<ul>
+												<li><a href="#">Pepa Bueno</a></li>
+												
+											</ul>
+											<p>Mágnifico juego, de un realismo increíble.</p>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+									<div class="bootstrap-tab-text-grid">
+										<div class="bootstrap-tab-text-grid-left">
+											
+										</div>
+										<div class="bootstrap-tab-text-grid-right">
+											<ul>
+												<li><a href="#">Carlos Herrera</a></li>
+												
+											</ul>
+											<p>Una auténtica pasada.</p>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+									<div class="add-review">
+										<h4>Comenta</h4>
+										<form>
+											<input type="text" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}" required="">
+											<input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+											<input type="text" value="Puntuación" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Puntuación';}" required="">
+											<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Comentario...';}" required="">Comentario...</textarea>
+											<input type="submit" value="Enviar" >
+										</form>
+									</div>
+								</div>
+							</div>				
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+
+-->
+</div>
+<!-- //single -->
+
+{{>footer}}
