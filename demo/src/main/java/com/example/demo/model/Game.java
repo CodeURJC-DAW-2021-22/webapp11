@@ -42,9 +42,9 @@ public class Game {
 
 	public Game() {}
 
-	public Game(String nombre, String description, Long price, String category) {
+	public Game(String title, String description, Long price, String category) {
 		super();
-		this.title = nombre;
+		this.title = title;
 		this.description = description;
 		this.price = price;
 		this.category = category;
@@ -66,9 +66,11 @@ public class Game {
 		this.description = description;
 	}
 
-	public Long getPrice() { return price; }
+	public Long getPrice() {
+		return price;
+		}
 
-	public void setPrice(String description) {
+	public void setPrice(Long price) {
 		this.price = price;
 	}
 

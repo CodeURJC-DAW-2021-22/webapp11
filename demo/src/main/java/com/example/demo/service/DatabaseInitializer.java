@@ -56,7 +56,7 @@ public class DatabaseInitializer {
 				"clasic");
 
 		setGameImage(game2, "static/Game_images/DS New Super Mario Bros.jpg");
-		gameRepository.save(game2);
+		gameRepository.save(game2);/*
 
 		Game game3 = new Game("GBA Super Mario Bros 3",
 				"La vida secreta de la mentees un viaje especular que recorre el cerebro y el pensamiento: se trata de descubrir nuestra mente para entendernos hasta en los más pequeños rincones que componen lo que somos, cómo forjamos las ideas en los primeros días de vida, cómo damos forma a las decisiones que nos constituyen, cómo soñamos y cómo imaginamos, por qué sentimos ciertas emociones hacia los demás, cómo los demás influyen en nosotros, y cómo el cerebro se transforma y, con él, lo que somos.",
@@ -264,7 +264,7 @@ public class DatabaseInitializer {
 				"clasic");
 
 		setGameImage(game28, "static/Game_images/DS New Super Mario Bros.jpg");
-		gameRepository.save(game28);
+		gameRepository.save(game28);*/
 
 
 		// Sample Shops

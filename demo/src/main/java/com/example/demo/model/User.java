@@ -1,6 +1,18 @@
 package com.example.demo.model;
 
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.sql.Blob;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 
 import javax.persistence.*;
 
@@ -19,7 +31,7 @@ public class User {
 	private List<String> roles;
 
 	@ManyToMany(mappedBy="users")
-	private List<Game> gamesBaught;
+	private List<Game> gamesBought;
 
 	public User() {
 	}
@@ -30,8 +42,18 @@ public class User {
 		this.roles = List.of(roles);
 	}
 
+
+
 	public String getName() {
 		return name;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setPassword(String password) {
+		this.encodedPassword = password;
 	}
 
 	public void setName(String name) {
@@ -55,11 +77,11 @@ public class User {
 	}
 
 	public List<Game> getGames() {
-		return gamesBaught;
+		return gamesBought;
 	}
 
 	public void setBooks(List<Game> books) {
-		this.gamesBaught = gamesBaught;
+		this.gamesBought = gamesBought;
 	}
 
 }

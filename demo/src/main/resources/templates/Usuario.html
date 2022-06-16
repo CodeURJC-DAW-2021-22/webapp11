@@ -10,11 +10,35 @@
 </div>
 <!-- //breadcrumbs -->
 <!-- User -->
+
+<div class="userUpdate">
+  {{#logged}}
+  <div class="container">
+    <h3 class="animated wow zoomIn" data-wow-delay=".5s">{{userName}}</h3>
+    <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
+      <form action="/updateUser" method="post" enctype="multipart/form-data">
+        <input name="name" placeholder="Name"/>
+        <input  type='password' name="password" placeholder="Password" required=" " >
+
+        <input type="hidden" name="_csrf" value="{{token}}"/>
+        <p>
+          <button onclick="location.href='/'; return false;">Cancel</button>
+          <input type="submit" value="Save"/>
+        </p>
+      </form>
+    </div>
+    {{/logged}}
+    <h4 class="animated wow slideInUp" data-wow-delay=".5s">For New Products</h4>
+    <!--
+    <p class="animated wow slideInUp" data-wow-delay=".5s"><a href="register.html">Register Here</a> (Or) go back to <a href="index.html">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
+    -->
+  </div>
+</div>
+
+
 <div class="container">
   <section class="seccion-perfil-usuario">
 
-    <img class ="w3-round" src="images/avatar2.jpg" alt="img-avatar" style="width:13%">
-    <button type="button" class="btn1">Cambiar foto</button>
 
     <div class="profile tabShow">
       <h2> Name</h2>

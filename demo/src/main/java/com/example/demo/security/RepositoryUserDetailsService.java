@@ -35,6 +35,8 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 				user.getEncodedPassword(), roles);
 
 	}
+
+
 }
 
 

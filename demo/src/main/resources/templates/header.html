@@ -49,7 +49,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					{{#logged}}
 					<div class="nav navbar-nav navbar-right"> <ul class="nav navbar-nav">
-						<li>{{userName}}</li>
 						<li><form action="/logout" method="post">
 							<button class="btn btn-default navbar-btn" type="submit">Log
 								Out</button>
@@ -138,13 +137,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</script>
 				<!-- //search-scripts -->
 			</div>
+			{{#logged}}
 			<div class="header-right">
 				<div class="cart box_1">
-					<a href="/Usuario">
-						<h3 class="total">User</h3>
+					<a href="/Usuario/{{id}}">
+						<h3 class="total">{{userName}}</h3>
 					</a>
 				</div>
 			</div>
+			{{/logged}}
 			<div class="clearfix"> </div>
 		</div>
 	</div>
