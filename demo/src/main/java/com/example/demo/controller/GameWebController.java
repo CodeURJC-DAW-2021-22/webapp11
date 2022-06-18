@@ -8,13 +8,13 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 
 import com.example.demo.model.Game;
-import com.example.demo.model.User;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,10 +35,11 @@ public class GameWebController {
 	private GameService gameService;
 
 	@Autowired
+	private PasswordEncoder passwordEncoder;
+
+	@Autowired
 	private UserService userService;
 
-	//@Autowired
-	//private ShopService shopService;
 
 	@ModelAttribute
 	public void addAttributes(Model model, HttpServletRequest request) {
@@ -67,13 +68,6 @@ public class GameWebController {
 
 
 
-
-
-
-
-
-
-
 	@GetMapping("/index")
 	public String Index(Model model) {
 
@@ -81,13 +75,7 @@ public class GameWebController {
 
 		return "index";
 	}
-	@GetMapping("/Usuario/{id}")
-	public String User(Model model) {
 
-		//model.addAttribute("ga", gameService.findAll());
-
-		return "Usuario";
-	}
 
 	@GetMapping("/games/{id}")
 	public String showGame(Model model, @PathVariable long id) {
@@ -117,7 +105,7 @@ public class GameWebController {
 			return ResponseEntity.notFound().build();
 		}
 	}
-	@GetMapping("/games/{id}/Checkout")
+	@GetMapping("/games/{id}/checkout")
 	public String Checkout(Model model, @PathVariable long id) {
 
 		Optional<Game> game = gameService.findById(id);
@@ -131,7 +119,7 @@ public class GameWebController {
 
 
 
-	/*@GetMapping("/removebook/{id}")
+	/*@GetMapping("/removeBook/{id}")
 	public String removeBook(Model model, @PathVariable long id) {
 
 		Optional<Games> book = gameService.findById(id);
@@ -143,21 +131,21 @@ public class GameWebController {
 	}
 
 	 */
-	@GetMapping("/Addgames")
+	@GetMapping("/addGames")
 	public String addGames(Model model) {
 
 		
-		return "Addgames";
+		return "addGames";
 	}
 	
-	@GetMapping("/newgame")
+	@GetMapping("/newGame")
 	public String newGame(Model model) {
 
 		
 		return "games";
 	}
 
-	@PostMapping("/newgame")
+	@PostMapping("/newGame")
 	public String newBookProcess(Model model, Game game, MultipartFile imageField) throws IOException {
 
 		if (!imageField.isEmpty()) {
@@ -172,17 +160,7 @@ public class GameWebController {
 		return "redirect:/games/"+game.getId();
 	}
 
-	@PostMapping("/updateUser")
-	public String updateUserProcess(Model model, User user, HttpServletRequest request) throws IOException {
 
-
-		Principal principal = request.getUserPrincipal();
-		String sessionName = principal.getName();
-		User loggedUser = userService.findByName(sessionName);
-		userService.findByName(sessionName).setPassword(user.getEncodedPassword());
-
-		return "redirect:/Usuario/"+user.getId();
-	}
 
 	 
 

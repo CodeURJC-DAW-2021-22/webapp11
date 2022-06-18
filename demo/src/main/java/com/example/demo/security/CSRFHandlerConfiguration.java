@@ -14,7 +14,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class CSRFHandlerConfiguration implements WebMvcConfigurer {
 
 	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
+	public void addInterceptors(InterceptorRegistry registry)
+	{
 		registry.addInterceptor(new CSRFHandlerInterceptor());
 	}
 }
@@ -33,6 +34,8 @@ class CSRFHandlerInterceptor implements HandlerInterceptor {
 			}
 		}
 	}
+
+
 }
 
 

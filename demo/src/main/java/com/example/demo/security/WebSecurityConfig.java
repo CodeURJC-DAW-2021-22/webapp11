@@ -34,17 +34,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	// Public pages
         http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
-        http.authorizeRequests().antMatchers("/loginerror").permitAll();
+        http.authorizeRequests().antMatchers("/loginError").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
 
         // Private pages
-        http.authorizeRequests().antMatchers("/newbook").hasAnyRole( "USER");
-        http.authorizeRequests().antMatchers("/editbook/*").hasAnyRole("USER");
-        http.authorizeRequests().antMatchers("/removebook/*").hasAnyRole("ADMIN");
-        http.authorizeRequests().antMatchers("/Addgames").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/newBook").hasAnyRole( "USER");
+        http.authorizeRequests().antMatchers("/editBook/*").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/removeBook/*").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/addGames").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers("/addGamesError").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers("/checkout").hasAnyRole("USER");
-        http.authorizeRequests().antMatchers("/Usuario/*").fullyAuthenticated();
+        http.authorizeRequests().antMatchers("/user/*").fullyAuthenticated();
 
 
         // Login form
@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().usernameParameter("username");
         http.formLogin().passwordParameter("password");
         http.formLogin().defaultSuccessUrl("/index");
-        http.formLogin().failureUrl("/loginerror");
+        http.formLogin().failureUrl("/loginError");
 
         // Logout
         http.logout().logoutUrl("/logout");

@@ -11,8 +11,8 @@ public class LoginWebController {
 		return "login";
 	}
 
-	@RequestMapping("/loginerror")
-	public String loginerror() {
-		return "loginerror";
+	@RequestMapping("/loginError")
+	public String loginError() {
+		return "loginError";
 	}
 }
