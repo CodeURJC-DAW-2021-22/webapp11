@@ -1,33 +1,33 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.sql.Blob;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "Game")
+@DynamicUpdate
 public class Game {
 
 	@Id
+	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id = null;
-	
-	private String title;
 
-	private Long price;
-	
+	private String title;
+	private float gamePrice;
+	private String category;
+	private int nbuy;
+
+
 	@Column(columnDefinition = "TEXT")
 	private String description;
 
-	private String category;
+
 
 	@Lob
 	@JsonIgnore
@@ -35,20 +35,19 @@ public class Game {
 
 	private boolean image;
 
-	@ManyToMany
- 	private List<User> users;
-
 
 
 	public Game() {}
 
-	public Game(String title, String description, Long price, String category) {
+	public Game(String title, String description, float gamePrice, String category) {
 		super();
 		this.title = title;
 		this.description = description;
-		this.price = price;
+		this.gamePrice = gamePrice;
 		this.category = category;
+		this.nbuy = 0;
 	}
+
 
 	public String getTitle() {
 		return title;
@@ -66,12 +65,12 @@ public class Game {
 		this.description = description;
 	}
 
-	public Long getPrice() {
-		return price;
+	public float getgamePrice() {
+		return gamePrice;
 		}
 
-	public void setPrice(Long price) {
-		this.price = price;
+	public void setgamePrice(float price) {
+		this.gamePrice = gamePrice;
 	}
 
 	public String getCategory() {
@@ -106,14 +105,17 @@ public class Game {
 		this.image = image;
 	}
 
-	//public List<User> getShops() { return users; }
+	public int getNbuy() {
+		return nbuy;
+	}
 
-	//public void setShops(List<User> shops) { this.users = users; }
-
+	public void setNbuy(int nbuy) {
+		this.nbuy = nbuy;
+	}
 
 
 	@Override
 	public String toString() {
-		return "Game [id=" + id + ", title=" + title + ", description=" + description + ", price=" + price + ", category=" + category + "]";
+		return "Game [id=" + id + ", title=" + title + ", description=" + description + ", price=" + gamePrice + ", category=" + category + "]";
 	}
 }

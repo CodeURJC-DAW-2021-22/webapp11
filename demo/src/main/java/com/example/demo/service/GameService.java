@@ -38,6 +38,11 @@ public class GameService {
 		repository.deleteById(id);
 	}
 
+	/*public List<Game> getByCategory(String category){
+		return repository.getByCategory(category);
+	}
+
+	 */
 
 }
 

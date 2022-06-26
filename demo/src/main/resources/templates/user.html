@@ -10,66 +10,101 @@
 </div>
 <!-- //breadcrumbs -->
 <!-- User -->
-
-<div class="userUpdate">
-  {{#logged}}
+<section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_5.jpg');" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
   <div class="container">
-    <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-      <h2 class="animated wow zoomIn" data-wow-delay=".5s">{{userName}}</h2>
-      <form action="/updateUser" method="post" enctype="multipart/form-data">
-        <h3 class="animated wow zoomIn" data-wow-delay=".5s">Cambiar de contraseña</h3>
-        <input  type='password' name="password" placeholder="Introduzca su nueva contraseña" required=" " >
-
-        <input type="hidden" name="_csrf" value="{{token}}"/>
-        <p>
-          <input type="submit" value="Save"/>
-        </p>
-      </form>
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate text-center mb-5">
+        <h1 class="mb-2 bread">Bienvenido, {{userName}}</h1>
+      </div>
     </div>
+  </div>
+</section>
+
+</ul>
+</div>
+
+<div class="tab-content panel panel-info">
+  <div role="tabpanel" class="tab-pane fade in active show" id="editar" aria-labelledby="tabInfo">
+    <div class="container" style="padding-top: 60px;">
+      <h1 class="page-header">Editar perfil</h1>
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          {{#user.image}}
+          <img src="/user/{{user.id}}/image" style="width:200px;height:200px;">
+          {{/user.image}}
+
+          {{^user.image}}
+          <div class="text-center">
+            <img src="https://www.optimaley.com/wp-content/uploads/2014/09/foto-perfil-generica.jpg" class="avatar img-circle img-thumbnail" alt="avatar">
+          </div>
+          {{/user.image}}
+        </div>
+        <!-- edit form column -->
+        <div class="userUpdate">
+          {{#logged}}
+          <div class="container">
+            <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
+              <h2 class="animated wow zoomIn" data-wow-delay=".5s">{{userName}}</h2>
+              <form action="/updateUser" method="post" enctype="multipart/form-data">
+                <h3 class="animated wow zoomIn" data-wow-delay=".5s">Cambiar de contraseña</h3>
+                <input  type='password' name="password" placeholder="Introduzca su nueva contraseña" required=" " >
+
+                <input type="hidden" name="_csrf" value="{{token}}"/>
+                <p>
+                  <input type="submit" value="Save"/>
+                </p>
+              </form>
+            </div>
+            {{/logged}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <br> <br>
+<!--
+<div role="tabpanel" class="tab-pane fade" id="facturas" aria-labelledby="tabInfo">
+  <div class="container" style="padding-top: 60px;">
+    <h1 class="page-header">Facturas</h1>
+    <br>
+    {{#logged}}
+    					PARTE DEL ADMIN
+    {{#admin}}
+    <div id="userPurchases">
+      {{#adminpurchases}}
+      <p><a href="/purchase/{{id}}">Factura #{{id}}</a></p>
+      {{/adminpurchases}}
+    </div>
+
+
+    {{^adminpurchases}}
+    <b>No ha realizado ningún pedido.</b>
+    {{/adminpurchases}}
+    {{/admin}}
+
+    					PARTE DEL USUARIO NORMAL
+    {{^admin}}
+    <div id="userPurchases">
+      {{#purchases}}
+      <p><a href="/purchase/{{id}}">Factura #{{id}}</a></p>
+      {{/purchases}}
+    </div>
+
+
+    {{^purchases}}
+    <b>No ha realizado ningún pedido.</b>
+    {{/purchases}}
+    {{/admin}}
     {{/logged}}
 
-
-  <h2 class="titulo2">Juegos Comprados</h2>
-  <table class="timetable_sub">
-    <thead>
-    <tr>
-      <th>Product Name</th>
-      <th>Fecha</th>
-      <th>Price</th></tr>
-    </thead>
-    <tr class="rem1">
-      <td class="invert">Red dead redemption II</td>
-      <td class="invert">15/02/2022</td>
-      <td class="invert">60€</td>
-    </tr>
-    <tr class="rem1">
-      <td class="invert">Red dead redemption II</td>
-      <td class="invert">15/02/2022</td>
-      <td class="invert">60€</td>
-    </tr>
-
-  </table>
-  <br> <br>
-  <h2 class="titulo">Juegos Vendidos</h2>
-  <table class="timetable_sub">
-    <thead>
-    <tr>
-      <th>Product Name</th>
-      <th>Fecha</th>
-      <th>Price</th></tr>
-    </thead>
-    <tr class="rem1">
-      <td class="invert">Mario Kart 8 </td>
-      <td class="invert">15/02/2022</td>
-      <td class="invert">20€</td>
-    </tr>
-    <tr class="rem1">
-      <td class="invert">witcher 3</td>
-      <td class="invert">16/02/2022</td>
-      <td class="invert">10€</td>
-    </tr>
-
-  </table>
+  </div>
+  <br>
+</div>-->
 </div>
+
 <!-- //User -->
 {{>footer}}
