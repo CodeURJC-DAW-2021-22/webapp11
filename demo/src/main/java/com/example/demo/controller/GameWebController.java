@@ -3,11 +3,14 @@ package com.example.demo.controller;
 import java.io.IOException;
 import java.security.Principal;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
 import com.example.demo.model.Game;
+import com.example.demo.model.User;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -21,10 +24,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.service.GameService;
 import com.example.demo.service.UserService;
+
 //import com.example.demo.service.ShopService;
 
 
@@ -41,6 +46,8 @@ public class GameWebController {
 	private UserService userService;
 
 
+
+	/*
 	@ModelAttribute
 	public void addAttributes(Model model, HttpServletRequest request) {
 
@@ -53,10 +60,14 @@ public class GameWebController {
 			model.addAttribute("userName", principal.getName());
 			model.addAttribute("admin", request.isUserInRole("ADMIN"));
 
+
+
 		} else {
 			model.addAttribute("logged", false);
 		}
 	}
+
+	 */
 
 	@GetMapping("/games")
 	public String showGames(Model model) {
@@ -68,6 +79,13 @@ public class GameWebController {
 
 
 
+
+
+
+
+
+
+
 	@GetMapping("/index")
 	public String Index(Model model) {
 
@@ -75,7 +93,13 @@ public class GameWebController {
 
 		return "index";
 	}
+	@GetMapping("/Usuario/{id}")
+	public String User(Model model) {
 
+		//model.addAttribute("ga", gamesService.findAll());
+
+		return "User";
+	}
 
 	@GetMapping("/games/{id}")
 	public String showGame(Model model, @PathVariable long id) {
@@ -105,43 +129,18 @@ public class GameWebController {
 			return ResponseEntity.notFound().build();
 		}
 	}
-	@GetMapping("/games/{id}/checkout")
-	public String Checkout(Model model, @PathVariable long id) {
 
-		Optional<Game> game = gameService.findById(id);
-		if (game.isPresent()) {
-			model.addAttribute("game", game.get());
-			return "checkout";
-		} else {
-			return "game";
-		}
-	}
-
-
-
-	/*@GetMapping("/removeBook/{id}")
-	public String removeBook(Model model, @PathVariable long id) {
-
-		Optional<Games> book = gameService.findById(id);
-		if (book.isPresent()) {
-			gameService.delete(id);
-			model.addAttribute("book", book.get());
-		}
-		return "removedbook";
-	}
-
-	 */
 	@GetMapping("/addGames")
 	public String addGames(Model model) {
 
-		
+
 		return "addGames";
 	}
-	
+
 	@GetMapping("/newGame")
 	public String newGame(Model model) {
 
-		
+
 		return "games";
 	}
 
@@ -159,10 +158,23 @@ public class GameWebController {
 
 		return "redirect:/games/"+game.getId();
 	}
+/*
+	@PostMapping("/updateUser")
+	public String updateUserProcess(Model model, User user, HttpServletRequest request) throws IOException {
 
 
+		Principal principal = request.getUserPrincipal();
+		String sessionName = principal.getName();
+		Optional<User> loggedUser = userService.findByName(sessionName);
+		userService.findByName(sessionName).setPassword(user.getEncodedPassword());
+
+		return "redirect:/Usuario/"+user.getId();
+	}
+
+ */
 
 	 
+
 
 	/*@GetMapping("/game.html/{id}")
 	public String showGames(Model model, @PathVariable long id) {

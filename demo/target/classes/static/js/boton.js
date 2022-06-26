@@ -23,7 +23,7 @@ function moreContentAdmin() {
             if (data != undefined && data.content != undefined && data.content.length > 0){
 
                 for(let game of data.content){
-
+                    console.log("fu")
                     addGame(game)
 
                 }
@@ -44,7 +44,7 @@ function moreContentAdmin() {
 
 function addGame(game){
 
-    $('#Games').append(
+    $('#userGames').append(
 
         '<p><a href="/games/' + game.id + '">'+
 

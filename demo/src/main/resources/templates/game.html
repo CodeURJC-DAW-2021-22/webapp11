@@ -31,13 +31,7 @@
 						<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
 
 				</div>
-				<div class="categories animated wow slideInUp" data-wow-delay=".5s">
-					<h3>Categories</h3>
-					<ul class="cate">
-						<li><a href="/games">Super ventas</a> <span>(15)</span></li>
-						<li><a href="/games">Recomendado para ti</a> <span>(16)</span></li>
-					</ul>
-				</div>
+
 				
 			</div>
 			<div class="col-md-8 single-right">
@@ -71,27 +65,24 @@
 				</div>
 				<div class="col-md-7 single-right-left simpleCart_shelfItem animated wow slideInRight" data-wow-delay=".5s">
 					<h2>{{game.title}}</h2>
-					<h4><span class="item_price">55€</span></h4>
+					<h4><span class="item_price">{{game.gamePrice}}</span></h4>
+					{{#logged}}
+					{{^admin}}
+
+					<form action="/addToCart" method="post" enctype="multipart/form-data" class="appointment-form">
+						<input type="hidden" name="id" value="{{game.id}}" />
+						<input type="hidden" name="userName" value="{{userName}}" />
+						<input type="hidden" name="_csrf" value="{{token}}"/>
+						<p>
+							<input class="btn btn-primary" type="submit" value="Pedir" />
+						</p>
+					</form>
+
+					{{/admin}}
+					{{/logged}}
 
 
 
-					
-					<div class="occasional">
-						<h5>Occasion :</h5>
-						<div class="colr ert">
-							<label class="radio"><input type="radio" name="radio" checked=""><i></i>Nuevo</label>
-						</div>
-						<div class="colr">
-							<label class="radio"><input type="radio" name="radio"><i></i>Como nuevo</label>
-						</div>
-						<div class="colr">
-							<label class="radio"><input type="radio" name="radio"><i></i>Usado</label>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="occasion-cart">
-						<button onclick="location.href='/games/{{game.id}}/checkout'">Comprar</button>
-					</div>
 					
 				</div>
 				<div class="clearfix"> </div>
