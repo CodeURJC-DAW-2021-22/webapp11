@@ -74,6 +74,10 @@ public class User {
 	public User() {
 	}
 
+	public User(String encodedPassword) {
+		this.encodedPassword = encodedPassword;
+	}
+
 	public User(String name, String encodedPassword, String... roles) {
 		this.name = name;
 		this.encodedPassword = encodedPassword;
@@ -99,6 +103,7 @@ public class User {
 	public String getEncodedPassword() {
 		return encodedPassword;
 	}
+
 
 	public void setEncodedPassword(String encodedPassword) {
 		this.encodedPassword = encodedPassword;

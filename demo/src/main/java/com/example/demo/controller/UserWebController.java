@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.service.UserService;
 
+import static java.lang.System.out;
+
 
 @Controller
 public class UserWebController {
